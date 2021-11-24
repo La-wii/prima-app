@@ -15,6 +15,14 @@ const secondaCard = {
   prezzo: 15,
 } 
 
+const terzaCard = {
+  nome:  "Prodotto 3",
+  img: "http://www.regalopiu.com/img/w256-h256-c1:1/photo/articoli/art-d83wh4.jpg",
+  prezzo: 20,
+}
+
+const nomi = ["Pippo", "Pluto", "Paperino"]; 
+
 function App() {
   return (
     <div className="App">
@@ -31,6 +39,34 @@ function App() {
       img= {secondaCard.img}      
       prezzo= {secondaCard.prezzo}
       />
+
+      {/* usando spread operator */}
+      <Product 
+      {...terzaCard}
+      />
+
+      {/* map + react fragment */}
+      <div>
+       {nomi.map((nome,index)=>(
+        <>
+        {nome}
+        <div>
+          {index}
+        </div>
+        </>
+       ))}
+      </div>
+      
+      {/* map */}
+      <div>
+       {nomi.map((nome,index)=>(
+        <p>
+          {nome}
+          <br/>
+          <span>{index}</span>
+        </p>
+       ))}
+      </div>
     </div>
   );
 }
